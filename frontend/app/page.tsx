@@ -14,7 +14,6 @@ import {
     InputGroupAddon,
     InputGroupInput,
 } from "@/components/ui/input-group";
-import { Button } from "@/components/ui/button";
 import {
     Select,
     SelectItem,
@@ -22,6 +21,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { WeatherSearchButton } from "@/components/weather-search-button";
 import { WeatherBody } from "@/components/weather-body";
 import { WeatherFooter } from "@/components/weather-footer";
 import { SearchIcon } from "lucide-react";
@@ -121,9 +121,11 @@ export default function Home() {
                                 ))}
                             </SelectPopup>
                         </Select>
-                        <Button onClick={() => search()} variant="outline">
-                            Search
-                        </Button>
+                        <WeatherSearchButton
+                            onClick={() => search()}
+                            city={city}
+                            disabled={isPending}
+                        />
                     </FrameDescription>
                 </FrameHeader>
                 <FramePanel className="h-48 md:h-38 flex items-center">
